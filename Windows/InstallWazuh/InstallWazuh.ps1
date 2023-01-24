@@ -2,6 +2,9 @@ param(
     [string]$WazuhManagerDNS
 )
 
+Write-Output "Wazuh DNS address specified as..."
+Write-Output $WazuhManagerDNS
+
 # If $WazuhManagerDNS is not set, prompt the user for it
 if (!$WazuhManagerDNS) {
 	$WazuhManagerDNS = Read-Host "Enter the DNS address of the Wazuh Manager, e.g. wazuh.com"
