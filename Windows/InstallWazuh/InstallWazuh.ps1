@@ -1,6 +1,8 @@
 param(
-	[string]$WazuhManagerDNS
+	[System.Collections.Hashtable]$hashValues
 )
+
+$WazuhManagerDNS = $hashValues['WazuhManagerDNS']
 
 Write-Output "$WazuhManagerDNS"
 
