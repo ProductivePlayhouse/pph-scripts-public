@@ -1,11 +1,7 @@
-param(
-    [string]$WazuhManagerDNS
-)
+$WazuhManagerDNS=$args['WazuhManagerDNS']
 
 Write-Output "Wazuh DNS address specified as..."
 Write-Output $WazuhManagerDNS
-$WazuhManagerDNSValue = $args['WazuhManagerDNS']
-Write-Output $WazuhManagerDNSValue
 
 # If $WazuhManagerDNS is not set, prompt the user for it
 if (!$WazuhManagerDNS) {
