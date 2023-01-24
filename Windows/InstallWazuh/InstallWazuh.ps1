@@ -1,4 +1,5 @@
-$WazuhManagerDNS = Read-Host "Enter the DNS address of the Wazuh Manager, e.g. wazuh.com"
+# This script requires the DNS address of the Wazuh Manager as an argument
+$WazuhManagerDNS = $args[0]
 
 Write-Output "Installing Wazuh Agent..."
 Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.3.10-1.msi -OutFile ${env:tmp}\wazuh-agent-4.3.10.msi
