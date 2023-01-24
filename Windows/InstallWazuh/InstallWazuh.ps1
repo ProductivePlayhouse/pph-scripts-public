@@ -1,4 +1,5 @@
-$WazuhManagerDNS=$args['WazuhManagerDNS']
+# Get first arg
+$WazuhManagerDNS = $args[0]
 
 Write-Output "Wazuh DNS address specified as..."
 Write-Output $WazuhManagerDNS
