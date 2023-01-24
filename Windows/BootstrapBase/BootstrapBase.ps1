@@ -1,5 +1,7 @@
 # Run this script from an elevated PowerShell prompt
-$WazuhManagerDNS = $args[0]
+param(
+	[string]$WazuhManagerDNS
+)
 
 # If $WazuhManagerDNS is not set, prompt the user for it
 if (!$WazuhManagerDNS) {
