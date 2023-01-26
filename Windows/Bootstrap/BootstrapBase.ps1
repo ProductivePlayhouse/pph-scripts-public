@@ -12,3 +12,6 @@ $WazuhScriptPath = ((new-object net.webclient).DownloadString('https://raw.githu
 Invoke-Command -ScriptBlock ([scriptblock]::Create($WazuhScriptPath)) -ArgumentList $WazuhManagerDNS
 
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/Windows/InstallChocolatey/InstallChocolatey.ps1'))
+
+Write-Host "Installing Chrome..."
+choco install -y chrome
