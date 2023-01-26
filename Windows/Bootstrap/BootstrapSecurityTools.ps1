@@ -3,3 +3,9 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw
 
 Write-Host "Installing OpenVPN..."
 choco install -y openvpn
+
+Write-Host "Installing Java 11..."
+choco install -y temurin11jre
+
+Write-Host "Installing OWASP ZAP..."
+choco install -y zap
