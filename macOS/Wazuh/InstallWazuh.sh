@@ -2,11 +2,11 @@
 # This script will install Wazuh on macOS
 
 if [ -z "$1" ]; then
-	# If no argument was provided, read one from the user
+	# If no argument was provided, read DNS address from the user
 	echo "Enter the DNS address of the Wazuh Manager, e.g. wazuh.com: "
 	read WazuhManagerDNS
 else
-	# If an argument was provided, then use it
+	# If an argument was provided, use it for DNS
 	WazuhManagerDNS=$1
 fi
 
