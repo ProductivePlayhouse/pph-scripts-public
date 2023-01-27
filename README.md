@@ -17,5 +17,5 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw
 To start base macOS bootstrap via terminal:
 
 ```
-curl -o script.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Bootstrap/BootstrapBase.sh && chmod +x script.sh && sudo bash ./script.sh
+curl -o script.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Bootstrap/BootstrapBase.sh && chmod +x script.sh && bash ./script.sh
 ```
