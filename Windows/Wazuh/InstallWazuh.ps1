@@ -9,7 +9,7 @@ if (!$WazuhManagerDNS) {
 Write-Output "Installing Wazuh Agent..."
 Invoke-WebRequest -Uri https://packages.wazuh.com/4.x/windows/wazuh-agent-4.3.10-1.msi -OutFile ${env:tmp}\wazuh-agent-4.3.10.msi
 
-Start-Process -FilePath msiexec.exe -ArgumentList '/q', '/norestart', '/i', "$env:tmp\wazuh-agent-4.3.10.msi", "WAZUH_MANAGER=$WazuhManagerDNS", "WAZUH_REGISTRATION_SERVER=$WazuhManagerDNS"
+Start-Process -Wait -FilePath msiexec.exe -ArgumentList '/q', '/norestart', '/i', "$env:tmp\wazuh-agent-4.3.10.msi", "WAZUH_MANAGER=$WazuhManagerDNS", "WAZUH_REGISTRATION_SERVER=$WazuhManagerDNS"
 
 Write-Output "Making sure DNS is correct..."
 $filePath = "C:\Program Files (x86)\ossec-agent\ossec.conf"
