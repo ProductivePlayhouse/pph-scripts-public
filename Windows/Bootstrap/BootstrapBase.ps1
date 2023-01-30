@@ -13,5 +13,8 @@ Invoke-Command -ScriptBlock ([scriptblock]::Create($WazuhScriptPath)) -ArgumentL
 
 Invoke-Expression ((New-Object System.Net.WebClient).DownloadString('https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/Windows/Chocolatey/InstallChocolatey.ps1'))
 
+Write-Host "Reloading path..."
+$env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + [System.Environment]::GetEnvironmentVariable("Path","User")
+
 Write-Host "Installing Chrome..."
 choco install -y googlechrome
