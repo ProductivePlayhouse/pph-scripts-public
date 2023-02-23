@@ -18,3 +18,6 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine") + ";"
 
 Write-Host "Installing Chrome..."
 choco install -y googlechrome
+
+Write-Host "Installing git..."
+choco install -y git
