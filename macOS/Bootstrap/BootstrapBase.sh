@@ -7,15 +7,18 @@ else
 	WazuhManagerDNS=$1
 fi
 
-echo "Installing git..."
-curl -O https://github.com/git/git/archive/refs/tags/v2.31.1.tar.gz
-tar -xf v2.31.1.tar.gz
-cd git-2.31.1/
-make configure
-./configure --prefix=/usr/local/git
-make all
-sudo make install
-echo 'export PATH="/usr/local/git/bin:$PATH"' >> ~/.bash_profile
+# Install XCode
+curl -o xcode.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/XCode/InstallXCode.sh && chmod +x xcode.sh && bash ./xcode.sh
 
-cd ~
+echo "Installing Homebrew..."
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+echo "Adding Homebrew to path..."
+echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+
+echo "Installing git..."
+brew install git
+
+# Install Wazuh
 curl -o wazuh.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Wazuh/InstallWazuh.sh && chmod +x wazuh.sh && bash ./wazuh.sh $WazuhManagerDNS
