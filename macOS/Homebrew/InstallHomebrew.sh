@@ -1,3 +1,10 @@
+#!/bin/bash
+
+# Set HOME variable if not set
+if [ -z "$HOME" ]; then
+  export HOME=$(eval echo "~$(whoami)")
+fi
+
 # Check if Homebrew is already installed
 if ! command -v brew > /dev/null 2>&1; then
     echo "Installing Homebrew..."
