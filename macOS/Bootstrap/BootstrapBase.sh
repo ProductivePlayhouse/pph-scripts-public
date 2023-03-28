@@ -10,12 +10,8 @@ fi
 # Install XCode
 curl -o xcode.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/XCode/InstallXCode.sh && chmod +x xcode.sh && bash ./xcode.sh
 
-echo "Installing Homebrew..."
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-
-echo "Adding Homebrew to path..."
-echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.zshrc
-source ~/.zshrc
+# Install Homebrew
+curl -o homebrew.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Homebrew/InstallHomebrew.sh && chmod +x homebrew.sh && bash ./homebrew.sh
 
 echo "Installing git..."
 brew install git
