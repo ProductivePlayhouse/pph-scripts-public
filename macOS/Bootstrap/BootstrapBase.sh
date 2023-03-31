@@ -10,11 +10,8 @@ fi
 # Install XCode
 curl -o xcode.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/XCode/InstallXCode.sh && chmod +x xcode.sh && bash ./xcode.sh
 
-# Install Homebrew
-curl -o homebrew.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Homebrew/InstallHomebrew.sh && chmod +x homebrew.sh && bash ./homebrew.sh
-
-echo "Installing git..."
-brew install git
+# Install Git
+curl -o git.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Git/InstallGit.sh && chmod +x git.sh && bash ./git.sh
 
 # Install Wazuh
 curl -o wazuh.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Wazuh/InstallWazuh.sh && chmod +x wazuh.sh && bash ./wazuh.sh $WazuhManagerDNS
