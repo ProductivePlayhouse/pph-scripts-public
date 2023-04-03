@@ -1,13 +1,21 @@
 #!/bin/bash
 
-# Download the latest Git for macOS installer
-curl -o git-latest.pkg -L https://sourceforge.net/projects/git-osx-installer/files/latest/download
+if ! git --version >/dev/null 2>&1; then
+    echo "Git is not installed"
 
-# Install Git
-sudo installer -pkg git-latest.pkg -target /
+    # Download the latest Git for macOS installer
+    curl -o git-latest.pkg -L https://sourceforge.net/projects/git-osx-installer/files/latest/download
 
-# Remove the installer file
-rm git-latest.pkg
+    # Install Git
+    sudo installer -pkg git-latest.pkg -target /
 
-# Verify Git installation
-git --version
+    # Remove the installer file
+    rm git-latest.pkg
+
+    # Verify Git installation
+    git --version
+
+else
+    echo "Git is already installed"
+    exit 0
+fi
