@@ -14,4 +14,7 @@ curl -o xcode.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scrip
 curl -o git.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Git/InstallGit.sh && chmod +x git.sh && bash ./git.sh
 
 # Install Wazuh
-curl -o wazuh.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Wazuh/InstallWazuh.sh && chmod +x wazuh.sh && bash ./wazuh.sh $WazuhManagerDNS
+if [ ! -e "/Library/Ossec/etc/ossec.conf" ]; then
+    echo "Wazuh installation not found"
+    curl -o wazuh.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Wazuh/InstallWazuh.sh && chmod +x wazuh.sh && bash ./wazuh.sh $WazuhManagerDNS
+fi
