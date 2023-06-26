@@ -19,3 +19,9 @@ To start base macOS bootstrap via terminal:
 ```
 curl -o script.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Bootstrap/BootstrapBase.sh && chmod +x script.sh && bash ./script.sh
 ```
+
+For the dev system version:
+
+```
+curl -o script.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Bootstrap/BootstrapDev.sh && chmod +x script.sh && sudo bash ./script.sh
+```
