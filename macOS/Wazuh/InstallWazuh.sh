@@ -30,7 +30,8 @@ mkdir /tmp
 curl -so wazuh-agent-4.8.1.pkg $WAZUH_PKG_URL
 
 # Set environment variables in a temporary file
-echo "WAZUH_MANAGER='$WazuhManagerDNS'" > /tmp/wazuh_envs && installer -pkg ./wazuh-agent-4.8.1.pkg -target /
+echo "WAZUH_MANAGER='$WazuhManagerDNS'" > /tmp/wazuh_envs
+sudo bash -c 'source /tmp/wazuh_envs && installer -pkg ./wazuh-agent-4.8.1.pkg -target /'
 
 # Start Wazuh
 /Library/Ossec/bin/wazuh-control start
