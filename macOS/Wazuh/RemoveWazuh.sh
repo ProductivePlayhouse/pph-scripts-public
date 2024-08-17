@@ -6,7 +6,6 @@ sudo /Library/Ossec/bin/wazuh-control stop
 
 echo "Removing Wazuh..."
 sudo /bin/rm -r /Library/Ossec
-sudo /bin/launchctl unload /Library/LaunchDaemons/com.wazuh.agent.plist
 sudo /bin/rm -f /Library/LaunchDaemons/com.wazuh.agent.plist
 sudo /bin/rm -rf /Library/StartupItems/WAZUH
 sudo /usr/bin/dscl . -delete "/Users/wazuh"
