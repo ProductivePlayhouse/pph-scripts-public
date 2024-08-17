@@ -24,6 +24,14 @@ else
 fi
 
 echo "Installing Wazuh..."
+# Download the Wazuh package
 curl -so wazuh-agent-4.8.1.pkg $WAZUH_PKG_URL
-export WAZUH_MANAGER=$WazuhManagerDNS
-sudo installer -pkg ./wazuh-agent-4.8.1.pkg -target /
+
+# Set environment variables in a temporary file
+echo "WAZUH_MANAGER='$WazuhManagerDNS'" > /tmp/wazuh_envs
+
+# Run the installer, referencing the environment variables file
+sudo bash -c 'source /tmp/wazuh_envs && installer -pkg ./wazuh-agent-4.8.1.pkg -target /'
+
+# Clean up the temporary file
+rm /tmp/wazuh_envs
