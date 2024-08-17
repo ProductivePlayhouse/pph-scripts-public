@@ -24,4 +24,6 @@ else
 fi
 
 echo "Installing Wazuh..."
-curl -so wazuh-agent-4.8.1.pkg $WAZUH_PKG_URL && sudo launchctl setenv WAZUH_MANAGER $WazuhManagerDNS && sudo installer -pkg ./wazuh-agent-4.8.1.pkg -target /
+curl -so wazuh-agent-4.8.1.pkg $WAZUH_PKG_URL
+export WAZUH_MANAGER=$WazuhManagerDNS
+sudo installer -pkg ./wazuh-agent-4.8.1.pkg -target /
