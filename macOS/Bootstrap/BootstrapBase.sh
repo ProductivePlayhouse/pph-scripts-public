@@ -7,14 +7,17 @@ else
 	WazuhManagerDNS=$1
 fi
 
-# Install XCode
-curl -o xcode.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/XCode/InstallXCode.sh && chmod +x xcode.sh && bash ./xcode.sh
+sudo curl -o xcode.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/XCode/InstallXCode.sh
+sudo chmod +x xcode.sh
+sudo bash ./xcode.sh
 
-# Install Git
-curl -o git.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Git/InstallGit.sh && chmod +x git.sh && bash ./git.sh
+sudo curl -o git.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Git/InstallGit.sh
+sudo chmod +x git.sh
+sudo bash ./git.sh
 
-# Install Wazuh
 if [ ! -e "/Library/Ossec/etc/ossec.conf" ]; then
     echo "Wazuh installation not found"
-    curl -o wazuh.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Wazuh/InstallWazuh.sh && chmod +x wazuh.sh && bash ./wazuh.sh $WazuhManagerDNS
+    sudo curl -o wazuh.sh https://raw.githubusercontent.com/ProductivePlayhouse/pph-scripts-public/main/macOS/Wazuh/InstallWazuh.sh
+    sudo chmod +x wazuh.sh
+    sudo bash ./wazuh.sh $WazuhManagerDNS
 fi

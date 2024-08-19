@@ -1,6 +1,19 @@
 #!/bin/bash
 # This script will install Wazuh on macOS
 
+# Detect the hardware architecture
+ARCH=$(uname -m)
+
+# Set the download URL based on the architecture
+if [ "$ARCH" == "arm64" ]; then
+    WAZUH_PKG_URL="https://packages.wazuh.com/4.x/macos/wazuh-agent-4.8.1-1.arm64.pkg"
+elif [ "$ARCH" == "x86_64" ]; then
+    WAZUH_PKG_URL="https://packages.wazuh.com/4.x/macos/wazuh-agent-4.8.1-1.intel64.pkg"
+else
+    echo "Unsupported architecture: $ARCH"
+    exit 1
+fi
+
 if [ -z "$1" ]; then
 	# If no argument was provided, read DNS address from the user
 	echo "Enter the DNS address of the Wazuh Manager, e.g. wazuh.com: "
@@ -11,4 +24,13 @@ else
 fi
 
 echo "Installing Wazuh..."
-curl -so wazuh-agent-4.3.10.pkg https://packages.wazuh.com/4.x/macos/wazuh-agent-4.3.10-1.pkg && sudo launchctl setenv WAZUH_MANAGER $WazuhManagerDNS && sudo installer -pkg ./wazuh-agent-4.3.10.pkg -target /
+mkdir /tmp
+
+# Download the Wazuh package
+curl -so wazuh-agent-4.8.1.pkg $WAZUH_PKG_URL
+
+# Set environment variables in a temporary file
+echo "WAZUH_MANAGER='$WazuhManagerDNS'" > /tmp/wazuh_envs && installer -pkg ./wazuh-agent-4.8.1.pkg -target /
+
+# Start Wazuh
+/Library/Ossec/bin/wazuh-control start
